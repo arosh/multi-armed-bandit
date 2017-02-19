@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { pull } from './actions';
 import slot from './money_slot_machine.png';
+import './App.css';
 
 const styles = {
   slot: {

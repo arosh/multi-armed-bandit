@@ -10,6 +10,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2 || ^4.0.0",
     "eslint-plugin-react": "^6.9.0",
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.9.0"
   },
   "dependencies": {
@@ -24,6 +25,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "lint": "eslint --fix src/*.js src/**/*.js || true"
   },
   "eslintConfig": {
@@ -34,5 +37,6 @@
     "rules": {
       "react/jsx-filename-extension": "off"
     }
-  }
+  },
+  "homepage": "https://arosh.github.io/multi-armed-bandit"
 }
