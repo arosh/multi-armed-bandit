@@ -6,11 +6,10 @@ import './App.css';
 
 const styles = {
   slot: {
-    marginTop: '1em',
-    marginBottom: '1em',
+    marginBottom: '0.5em',
   },
   table: {
-    marginTop: '1em',
+    marginTop: '0.5em',
   },
 };
 
