@@ -53,13 +53,13 @@ const App = props => (
             <td>{props.arm1all + props.arm2all}</td>
           </tr>
           <tr>
-            <th scope="row">{'\\[\\alpha_i(t)\\]'}</th>
+            <th scope="row">{'\\[\\mathrm{S}_i(t)\\]'}</th>
             <td>{props.arm1success}</td>
             <td>{props.arm2success}</td>
             <td>{props.arm1success + props.arm2success}</td>
           </tr>
           <tr>
-            <th scope="row">{'\\[\\beta_i(t)\\]'}</th>
+            <th scope="row">{'\\[\\mathrm{F}_i(t)\\]'}</th>
             <td>{props.arm1failure}</td>
             <td>{props.arm2failure}</td>
             <td>{props.arm1failure + props.arm2failure}</td>
@@ -77,7 +77,7 @@ const App = props => (
             <td />
           </tr>
           <tr>
-            <th scope="row">{'\\[\\mathrm{TS}\\sim\\beta(\\alpha_i(t)+1,\\beta_i(t)+1)\\]'}</th>
+            <th scope="row">{'\\[\\mathrm{TS}\\sim\\beta(\\mathrm{S}_i(t)+1,\\mathrm{F}_i(t)+1)\\]'}</th>
             <td>{(props.arm1ts).toFixed(2)}</td>
             <td>{(props.arm2ts).toFixed(2)}</td>
             <td />
