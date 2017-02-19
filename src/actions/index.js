@@ -2,18 +2,18 @@ import { jStat } from 'jStat';
 
 export function updateTS() {
   return (dispatch, getState) => {
-    const state = getState();
-    const alpha1 = state.arm1success;
-    const beta1 = state.arm1failure;
-    const alpha2 = state.arm2success;
-    const beta2 = state.arm2failure;
-    const sample1 = jStat.beta.sample(alpha1 + 1, beta1 + 1);
-    const sample2 = jStat.beta.sample(alpha2 + 2, beta2 + 1);
+    const { arm1success, arm1failure, arm2success, arm2failure } = getState();
+    const sample1 = jStat.beta.sample(arm1success + 1, arm1failure + 1);
+    const sample2 = jStat.beta.sample(arm2success + 1, arm2failure + 1);
     dispatch({
       type: 'UPDATE_TS',
       samples: [sample1, sample2],
     });
   };
+}
+
+function bernoulli(p) {
+  return jStat.uniform.sample(0, 1) < p;
 }
 
 export function pull(id) {
@@ -25,7 +25,7 @@ export function pull(id) {
   } else {
     console.error(`id = ${id}`);
   }
-  const result = jStat.uniform.sample(0, 1) < prob;
+  const result = bernoulli(prob);
   return (dispatch) => {
     dispatch({
       type: 'PULL',
