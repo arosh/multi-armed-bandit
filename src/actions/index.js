@@ -1,22 +1,5 @@
 import { jStat } from 'jStat';
 
-export function pull(id) {
-  let prob;
-  if (id === 1) {
-    prob = 0.7;
-  } else if (id === 2) {
-    prob = 0.4;
-  } else {
-    console.error(`id = ${id}`);
-  }
-  const result = jStat.uniform.sample(0, 1) < prob;
-  return {
-    type: 'PULL',
-    id,
-    result,
-  };
-}
-
 export function updateTS() {
   return (dispatch, getState) => {
     const state = getState();
@@ -30,5 +13,25 @@ export function updateTS() {
       type: 'UPDATE_TS',
       samples: [sample1, sample2],
     });
+  };
+}
+
+export function pull(id) {
+  let prob;
+  if (id === 1) {
+    prob = 0.7;
+  } else if (id === 2) {
+    prob = 0.4;
+  } else {
+    console.error(`id = ${id}`);
+  }
+  const result = jStat.uniform.sample(0, 1) < prob;
+  return (dispatch) => {
+    dispatch({
+      type: 'PULL',
+      id,
+      result,
+    });
+    dispatch(updateTS());
   };
 }

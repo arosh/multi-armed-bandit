@@ -65,17 +65,6 @@ const store = createStore(
 
 store.dispatch(updateTS());
 
-// http://jamesknelson.com/join-the-dark-side-of-the-flux-responding-to-actions-with-actors/
-let acting = false;
-
-store.subscribe(() => {
-  if (!acting) {
-    acting = true;
-    store.dispatch(updateTS());
-    acting = false;
-  }
-});
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
