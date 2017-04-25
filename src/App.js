@@ -22,7 +22,7 @@ const App = props => (
         onClick={() => props.pull(1)} disabled={props.disabled}
       >
         レバーを引く
-        </button>
+      </button>
     </div>
     <div className="col-xs-offset-2 col-xs-3">
       <img src={slot} alt="スロットマシーン" className="img-responsive" style={styles.slot} />
@@ -31,7 +31,7 @@ const App = props => (
         onClick={() => props.pull(2)} disabled={props.disabled}
       >
         レバーを引く
-        </button>
+      </button>
     </div>
     <div className="col-xs-offset-2 col-xs-8">
       <table className="table table-condensed" style={styles.table}>
